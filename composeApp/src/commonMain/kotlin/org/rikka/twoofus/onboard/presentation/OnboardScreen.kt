@@ -2,6 +2,7 @@ package org.rikka.twoofus.onboard.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,15 +17,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
+import org.rikka.twoofus.core.theme.Black
 import org.rikka.twoofus.core.theme.Neutral0
 import org.rikka.twoofus.core.theme.Pacifico
 import org.rikka.twoofus.core.theme.TextStyles
 import org.rikka.twoofus.core.theme.TwogetherColors
 import org.rikka.twoofus.onboard.component.InfoInputForm
+import org.rikka.twoofus.onboard.presentation.page.AboutMePage
 import twoofus.composeapp.generated.resources.Res
 import twoofus.composeapp.generated.resources.logo_app
 
@@ -43,7 +47,7 @@ internal fun OnboardScreen() {
   ) {
     Column(
       modifier = Modifier
-        .weight(3f)
+        .weight(0.3f)
         .fillMaxWidth(),
       horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -61,36 +65,15 @@ internal fun OnboardScreen() {
     
     Column(
       modifier = Modifier
-        .weight(7f)
+        .weight(0.7f)
         .background(
           color = Neutral0,
           shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
         )
-        .padding(vertical = 34.dp, horizontal = 16.dp)
+        .padding(16.dp),
     ) {
-      InfoInputForm()
-      
-      Spacer(modifier = Modifier.height(20.dp))
-      
-      Box(
-        modifier = Modifier
-          .height(56.dp)
-          .fillMaxWidth()
-          .background(
-            brush = TwogetherColors.colors.gradientPrimary,
-            shape = RoundedCornerShape(16.dp)
-          ),
-        contentAlignment = Alignment.Center
-      ) {
-        Text(
-          text = "Continue",
-          style = TextStyles.Title20Bold.copy(color = Neutral0),
-        )
-      }
-      
+      AboutMePage()
     }
-    
-    
   }
 }
 
